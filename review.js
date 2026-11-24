@@ -1,15 +1,15 @@
 // Evidence review layer. Reports remain the authoritative narrative; this file adds exhibit and document navigation.
 const exhibits=[
-{id:'HT-01',name:'Drinking glasses',image:'evidence/harbor-overview.png',result:'KNOX / ORTEGA MATCHES',detail:'Two glasses; separate DNA and latent-print identifications. Ortega identification returned through INTERPOL.',finding:0,links:'ortega'},
-{id:'HT-02',name:'Tequila bottle',image:'evidence/harbor-10.png',result:'INCONCLUSIVE IMPRESSIONS',detail:'Bottle pictured in the right-hand panel. Overlapping fingerprints do not support an individual identification.',finding:1},
-{id:'HT-03',name:'Shrewsbury Micro SMG',image:'evidence/harbor-10.png',result:'KNOX PRINT / SHIPMENT MATCH',detail:'Center panel. Serial SH-MSM-2611847 matches the stolen Popular Street consignment.',finding:2,links:'manifest'},
-{id:'HT-04',name:'Hawk & Little Pistol',image:'evidence/harbor-10.png',result:'SHIPMENT VERIFIED',detail:'Left panel. Serial HL-P-2609352 matches the same delivery; fingerprint examination remains pending.',finding:2,links:'manifest'},
-{id:'HT-05',name:'Coil duty equipment',image:'evidence/harbor-10.png',result:'CONSIGNMENT VERIFIED',detail:'Equipment case in the right-hand panel. Police-grade procurement consignment routed through Ammu-Nation; fingerprint review pending.',finding:2,links:'manifest'},
-{id:'HT-06',name:'Submitted blueprints',image:'evidence/harbor-8.png',result:'LOCATION PENDING',detail:'Left panel. Warehouse identification remains subject to City Planning review.',finding:3},
-{id:'HT-07',name:'Ammu-Nation goods crate',image:'evidence/harbor-6.png',result:'KNOX PRINT / SHIPMENT MATCH',detail:'Crate visible in the right-hand panel. Print from underside of lid matches Jayla Knox.',finding:4,links:'manifest'},
-{id:'HT-08',name:'Handwritten note',image:'evidence/10.jpg',result:'WRITER NOT IDENTIFIED',detail:'No usable prints. Compared writing does not match the available Knox exemplars.',finding:5},
-{id:'HT-09',name:'Harbor scene overview',image:'evidence/harbor-9.png',result:'SCENE CONTEXT',detail:'Submitted composite scene photograph. Blood analysis is handled by SASP and is not included in this laboratory release.',finding:null},
-{id:'HT-10',name:'Tire marks & table context',image:'evidence/harbor-7.png',result:'SCENE CONTEXT',detail:'Photographic context only. No vehicle or tire identification is issued in this report.',finding:null}
+{id:'HT-01',name:'Drinking glasses',image:'harbor-overview.png',result:'KNOX / ORTEGA MATCHES',detail:'Two glasses; separate DNA and latent-print identifications. Ortega identification returned through INTERPOL.',finding:0,links:'ortega'},
+{id:'HT-02',name:'Tequila bottle',image:'harbor-10.png',result:'INCONCLUSIVE IMPRESSIONS',detail:'Bottle pictured in the right-hand panel. Overlapping fingerprints do not support an individual identification.',finding:1},
+{id:'HT-03',name:'Shrewsbury Micro SMG',image:'harbor-10.png',result:'KNOX PRINT / SHIPMENT MATCH',detail:'Center panel. Serial SH-MSM-2611847 matches the stolen Popular Street consignment.',finding:2,links:'manifest'},
+{id:'HT-04',name:'Hawk & Little Pistol',image:'harbor-10.png',result:'SHIPMENT VERIFIED',detail:'Left panel. Serial HL-P-2609352 matches the same delivery; fingerprint examination remains pending.',finding:2,links:'manifest'},
+{id:'HT-05',name:'Coil duty equipment',image:'harbor-10.png',result:'CONSIGNMENT VERIFIED',detail:'Equipment case in the right-hand panel. Police-grade procurement consignment routed through Ammu-Nation; fingerprint review pending.',finding:2,links:'manifest'},
+{id:'HT-06',name:'Submitted blueprints',image:'harbor-8.png',result:'LOCATION PENDING',detail:'Left panel. Warehouse identification remains subject to City Planning review.',finding:3},
+{id:'HT-07',name:'Ammu-Nation goods crate',image:'harbor-6.png',result:'KNOX PRINT / SHIPMENT MATCH',detail:'Crate visible in the right-hand panel. Print from underside of lid matches Jayla Knox.',finding:4,links:'manifest'},
+{id:'HT-08',name:'Handwritten note',image:'10.jpg',result:'WRITER NOT IDENTIFIED',detail:'No usable prints. Compared writing does not match the available Knox exemplars.',finding:5},
+{id:'HT-09',name:'Harbor scene overview',image:'harbor-9.png',result:'SCENE CONTEXT',detail:'Submitted composite scene photograph. Blood analysis is handled by SASP and is not included in this laboratory release.',finding:null},
+{id:'HT-10',name:'Tire marks & table context',image:'harbor-7.png',result:'SCENE CONTEXT',detail:'Photographic context only. No vehicle or tire identification is issued in this report.',finding:null}
 ];
 const inventory=[
 {type:'Micro SMG',model:'Shrewsbury Micro SMG',serial:'SH-MSM-2611847',status:'Recovered · Harbor Terminal',match:true},
@@ -39,4 +39,4 @@ const hotspots=[
 {label:'Blueprints',x:41,y:61,ex:5},
 {label:'Equipment case',x:26,y:17,ex:4}
 ];
-function sceneMap(){return `<figure class="scene-map"><div class="scene-stage"><img src="evidence/harbor-overview.png" alt="Harbor Terminal scene photograph with selectable exhibits">${hotspots.map(h=>`<button class="hotspot" style="left:${h.x}%;top:${h.y}%" onclick="openExhibit(${h.ex})" aria-label="${h.label}: open exhibit ${exhibits[h.ex].id}"><span>${h.label}</span></button>`).join('')}</div><figcaption>Select a marker to open that exhibit. Markers show where an item sits in the submitted photograph, not a new finding.</figcaption></figure>`}
+function sceneMap(){return `<figure class="scene-map"><div class="scene-stage"><img src="harbor-overview.png" alt="Harbor Terminal scene photograph with selectable exhibits">${hotspots.map(h=>`<button class="hotspot" style="left:${h.x}%;top:${h.y}%" onclick="openExhibit(${h.ex})" aria-label="${h.label}: open exhibit ${exhibits[h.ex].id}"><span>${h.label}</span></button>`).join('')}</div><figcaption>Select a marker to open that exhibit. Markers show where an item sits in the submitted photograph, not a new finding.</figcaption></figure>`}
